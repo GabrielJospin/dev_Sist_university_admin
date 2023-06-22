@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS production;
+CREATE SCHEMA production;
