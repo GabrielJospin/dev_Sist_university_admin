@@ -1,2 +1,2 @@
-DROP SCHEMA IF EXISTS production;
+DROP SCHEMA IF EXISTS production CASCADE ;
 CREATE SCHEMA production;

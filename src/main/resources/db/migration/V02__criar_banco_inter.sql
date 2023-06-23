@@ -39,7 +39,7 @@ CREATE TABLE production.login(
     FOREIGN KEY(id_person) REFERENCES production.persons(id_person)
 );
 
-CREATE EXTENSION pgcrypto;
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
 CREATE TABLE production.students(
     id_student serial,
@@ -60,7 +60,7 @@ CREATE TABLE production.professors(
 CREATE TABLE production.researchers(
     id_researcher serial,
     specialization CHARACTER varying(255) NOT NULL,
-    is_undergraduate_student BOOLEAN NOT NULL,
+    is_postgraduate_student BOOLEAN NOT NULL,
     PRIMARY KEY (id_researcher)
 );
 
