@@ -67,7 +67,7 @@ CREATE TABLE production.researchers(
 CREATE TABLE production.employers(
     id_employer serial,
     function CHARACTER VARYING(255) NOT NULL,
-    salary numeric NOT NULL,
+    salary INT NOT NULL,
     PRIMARY KEY (id_employer)
 );
 
