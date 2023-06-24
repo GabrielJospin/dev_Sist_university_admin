@@ -9,8 +9,8 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_students")
-    private Long idStudents;
+    @Column(name = "id_student")
+    private Long idStudent;
 
     @Column(name = "course")
     private String course;
@@ -21,8 +21,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(Long idStudents, String course, double entryGrade) {
-        this.idStudents = idStudents;
+    public Student(Long idStudent, String course, double entryGrade) {
+        this.idStudent = idStudent;
         this.course = course;
         this.entryGrade = entryGrade;
     }
@@ -32,12 +32,12 @@ public class Student {
         this.entryGrade = entryGrade;
     }
 
-    public Long getIdStudents() {
-        return idStudents;
+    public Long getIdStudent() {
+        return idStudent;
     }
 
-    public void setIdStudents(Long idStudents) {
-        this.idStudents = idStudents;
+    public void setIdStudent(Long idStudents) {
+        this.idStudent = idStudents;
     }
 
     @Override
@@ -45,12 +45,12 @@ public class Student {
         if (this == o) return true;
         if (!(o instanceof Student)) return false;
         Student student = (Student) o;
-        return Double.compare(student.entryGrade, entryGrade) == 0 && Objects.equals(idStudents, student.idStudents) && Objects.equals(course, student.course);
+        return Double.compare(student.entryGrade, entryGrade) == 0 && Objects.equals(idStudent, student.idStudent) && Objects.equals(course, student.course);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idStudents, course, entryGrade);
+        return Objects.hash(idStudent, course, entryGrade);
     }
 
     public String getCourse() {

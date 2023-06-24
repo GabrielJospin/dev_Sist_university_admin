@@ -10,8 +10,8 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_courses")
-    private Long idCourses;
+    @Column(name = "id_course")
+    private Long idCourse;
 
     @Column(name = "cod_course")
     private String codCourse;
@@ -34,8 +34,8 @@ public class Course {
     public Course() {
     }
 
-    public Course(Long idCourses, String codCourse, String name, String description, String menu, String institution, Date creation) {
-        this.idCourses = idCourses;
+    public Course(Long idCourse, String codCourse, String name, String description, String menu, String institution, Date creation) {
+        this.idCourse = idCourse;
         this.codCourse = codCourse;
         this.name = name;
         this.description = description;
@@ -53,8 +53,8 @@ public class Course {
         this.creation = creation;
     }
 
-    public Long getIdCourses() {
-        return idCourses;
+    public Long getIdCourse() {
+        return idCourse;
     }
 
     public String getCodCourse() {
@@ -110,7 +110,7 @@ public class Course {
         if (this == o) return true;
         if (!(o instanceof Course)) return false;
         Course course = (Course) o;
-        return Objects.equals(idCourses, course.idCourses) &&
+        return Objects.equals(idCourse, course.idCourse) &&
                 Objects.equals(codCourse, course.codCourse) &&
                 Objects.equals(name, course.name) &&
                 Objects.equals(description, course.description) &&
@@ -121,7 +121,7 @@ public class Course {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCourses, codCourse, name, description, menu, institution, creation);
+        return Objects.hash(idCourse, codCourse, name, description, menu, institution, creation);
     }
 }
 

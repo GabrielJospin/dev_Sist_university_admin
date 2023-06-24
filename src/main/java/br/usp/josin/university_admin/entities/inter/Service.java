@@ -19,7 +19,7 @@ public class Service {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="id_profile", referencedColumnName = "id_service")
+    @JoinColumn(name="id_profile", referencedColumnName = "id_profile")
     private Profile profile;
 
     public Service() {

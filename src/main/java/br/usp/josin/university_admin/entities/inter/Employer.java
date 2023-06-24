@@ -9,8 +9,8 @@ public class Employer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_employers")
-    private Long idEmployers;
+    @Column(name = "id_employer")
+    private Long idEmployer;
 
     @Column(name = "function")
     private String function;
@@ -21,8 +21,8 @@ public class Employer {
     public Employer() {
     }
 
-    public Employer(Long idEmployers, String function, int salary) {
-        this.idEmployers = idEmployers;
+    public Employer(Long idEmployer, String function, int salary) {
+        this.idEmployer = idEmployer;
         this.function = function;
         this.salary = salary;
     }
@@ -32,8 +32,8 @@ public class Employer {
         this.salary = salary;
     }
 
-    public Long getIdEmployers() {
-        return idEmployers;
+    public Long getIdEmployer() {
+        return idEmployer;
     }
 
     public String getFunction() {
@@ -50,13 +50,13 @@ public class Employer {
         if (!(o instanceof Employer)) return false;
         Employer employer = (Employer) o;
         return salary == employer.salary &&
-                Objects.equals(idEmployers, employer.idEmployers) &&
+                Objects.equals(idEmployer, employer.idEmployer) &&
                 Objects.equals(function, employer.function);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idEmployers, function, salary);
+        return Objects.hash(idEmployer, function, salary);
     }
 
     public int getSalary() {
