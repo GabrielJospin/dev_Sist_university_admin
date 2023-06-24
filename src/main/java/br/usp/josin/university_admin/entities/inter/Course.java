@@ -6,7 +6,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "courses")
-public class Courses {
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +31,10 @@ public class Courses {
     @Column(name = "creation")
     private Date creation;
 
-    public Courses() {
+    public Course() {
     }
 
-    public Courses(Long idCourses, String codCourse, String name, String description, String menu, String institution, Date creation) {
+    public Course(Long idCourses, String codCourse, String name, String description, String menu, String institution, Date creation) {
         this.idCourses = idCourses;
         this.codCourse = codCourse;
         this.name = name;
@@ -44,7 +44,7 @@ public class Courses {
         this.creation = creation;
     }
 
-    public Courses(String codCourse, String name, String description, String menu, String institution, Date creation) {
+    public Course(String codCourse, String name, String description, String menu, String institution, Date creation) {
         this.codCourse = codCourse;
         this.name = name;
         this.description = description;
@@ -108,15 +108,15 @@ public class Courses {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Courses)) return false;
-        Courses courses = (Courses) o;
-        return Objects.equals(idCourses, courses.idCourses) &&
-                Objects.equals(codCourse, courses.codCourse) &&
-                Objects.equals(name, courses.name) &&
-                Objects.equals(description, courses.description) &&
-                Objects.equals(menu, courses.menu) &&
-                Objects.equals(institution, courses.institution) &&
-                Objects.equals(creation, courses.creation);
+        if (!(o instanceof Course)) return false;
+        Course course = (Course) o;
+        return Objects.equals(idCourses, course.idCourses) &&
+                Objects.equals(codCourse, course.codCourse) &&
+                Objects.equals(name, course.name) &&
+                Objects.equals(description, course.description) &&
+                Objects.equals(menu, course.menu) &&
+                Objects.equals(institution, course.institution) &&
+                Objects.equals(creation, course.creation);
     }
 
     @Override

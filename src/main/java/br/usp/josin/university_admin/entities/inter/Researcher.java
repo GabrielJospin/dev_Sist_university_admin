@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "researcher")
-public class Researchers {
+public class Researcher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,16 +18,16 @@ public class Researchers {
     @Column(name = "is_postgraduate_student")
     private Boolean isPostgraduateStudent;
 
-    public Researchers() {
+    public Researcher() {
     }
 
-    public Researchers(Long idResearcher, String specialization, Boolean isPostgraduateStudent) {
+    public Researcher(Long idResearcher, String specialization, Boolean isPostgraduateStudent) {
         this.idResearcher = idResearcher;
         this.specialization = specialization;
         this.isPostgraduateStudent = isPostgraduateStudent;
     }
 
-    public Researchers(String specialization, Boolean isPostgraduateStudent) {
+    public Researcher(String specialization, Boolean isPostgraduateStudent) {
         this.specialization = specialization;
         this.isPostgraduateStudent = isPostgraduateStudent;
     }
@@ -55,8 +55,8 @@ public class Researchers {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Researchers)) return false;
-        Researchers that = (Researchers) o;
+        if (!(o instanceof Researcher)) return false;
+        Researcher that = (Researcher) o;
         return Objects.equals(idResearcher, that.idResearcher) &&
                 Objects.equals(specialization, that.specialization) &&
                 Objects.equals(isPostgraduateStudent, that.isPostgraduateStudent);
