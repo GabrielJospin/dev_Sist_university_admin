@@ -14,7 +14,7 @@ CREATE TABLE production.profiles(
     id_profile serial,
     code_profile CHARACTER varying(5) NOT NULL,
     description CHARACTER varying(255) NOT NULL,
-    type CHARACTER varying(255) NOT NULL,
+    name CHARACTER varying(255) NOT NULL,
     PRIMARY KEY(id_profile),
     UNIQUE(code_profile)
 );
@@ -32,7 +32,7 @@ CREATE TABLE production.services(
 CREATE TABLE production.login(
     id_login serial,
     login CHARACTER varying(30) NOT NULL,
-    password bytea not null,
+    password text not null,
     id_person INTEGER NOT NULL,
     PRIMARY KEY(id_login),
     UNIQUE(login),

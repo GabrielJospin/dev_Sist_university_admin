@@ -23,7 +23,7 @@ CREATE TABLE production.historical_usage(
 
 CREATE TABLE production.spec_person(
     id serial,
-    id_person integer,
+    id_person integer not null,
     id_student integer,
     id_professor integer,
     id_researcher integer,

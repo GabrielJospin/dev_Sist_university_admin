@@ -19,20 +19,20 @@ public class Profile {
     @Column(name="description")
     private String description;
 
-    @Column(name="type")
-    private String type;
+    @Column(name="name")
+    private String name;
 
-    public Profile(Long idProfile, String codProfile, String description, String type) {
+    public Profile(Long idProfile, String codProfile, String description, String name) {
         this.idProfile = idProfile;
         this.codProfile = codProfile;
         this.description = description;
-        this.type = type;
+        this.name = name;
     }
 
-    public Profile(String codProfile, String description, String type) {
+    public Profile(String codProfile, String description, String name) {
         this.codProfile = codProfile;
         this.description = description;
-        this.type = type;
+        this.name = name;
     }
 
     public Profile() {
@@ -58,12 +58,12 @@ public class Profile {
         this.description = description;
     }
 
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -74,11 +74,11 @@ public class Profile {
         return Objects.equals(idProfile, profile.idProfile) &&
                 Objects.equals(codProfile, profile.codProfile) &&
                 Objects.equals(description, profile.description) &&
-                Objects.equals(type, profile.type);
+                Objects.equals(name, profile.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idProfile, codProfile, description, type);
+        return Objects.hash(idProfile, codProfile, description, name);
     }
 }
