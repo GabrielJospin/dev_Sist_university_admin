@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "historical_usage")
+@Table(name = "historical_usage", schema = "production")
 public class HistoricalUsage {
 
     @Id

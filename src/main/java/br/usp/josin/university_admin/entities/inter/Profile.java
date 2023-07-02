@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Embeddable
 @Entity
-@Table(name = "profile")
+@Table(name = "profile", schema = "production")
 public class Profile {
 
     @Id

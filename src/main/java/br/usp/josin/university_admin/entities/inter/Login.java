@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "login")
+@Table(name = "login", schema = "production")
 public class Login {
 
     @Id
@@ -29,6 +29,12 @@ public class Login {
         this.idLogin = idLogin;
         this.login = login;
         this.password = password;
+        this.person = person;
+    }
+
+    public Login(Long idLogin, String login, Person person) {
+        this.idLogin = idLogin;
+        this.login = login;
         this.person = person;
     }
 

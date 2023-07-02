@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "rel_person_profile")
+@Table(name = "rel_person_profile", schema = "production")
 public class RelPersonProfile {
 
     @Id
