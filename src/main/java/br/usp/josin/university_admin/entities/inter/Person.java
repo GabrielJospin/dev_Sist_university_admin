@@ -54,6 +54,10 @@ public class Person {
     public Person() {
     }
 
+    public void setIdPerson(Long idPerson) {
+        this.idPerson = idPerson;
+    }
+
     public Long getId() {
         return this.idPerson;
     }

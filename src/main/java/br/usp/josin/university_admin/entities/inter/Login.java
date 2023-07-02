@@ -18,7 +18,7 @@ public class Login {
     @Column(name = "password")
     private String password;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_person", referencedColumnName = "id_person")
     private Person person;
 
