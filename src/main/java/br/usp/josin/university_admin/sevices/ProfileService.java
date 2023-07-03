@@ -24,9 +24,5 @@ public class ProfileService {
         return profileRepository.findProfileByCode(codeProfile);
     }
 
-    public RelPersonProfile addPersonProfile(Person person, Profile profile, Date initDate, Date endDate ){
-        RelPersonProfile relPersonProfile = new RelPersonProfile(person, profile, initDate, endDate);
-        return relPersonProfileRepository.save(relPersonProfile);
-    }
 
 }
