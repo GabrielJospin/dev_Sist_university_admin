@@ -12,4 +12,6 @@ public interface PermissionRepository extends JpaRepository<Service, Long> {
             "left join university_admin.production.services s on s.id_profile = rpp.id_profile" +
             " where rpp.id_person = :idPerson and s.code_service like concat('%', :filter)", nativeQuery = true)
     List<Service> findServiceByIdPersonAndFilter(Long idPerson, String filter);
+
+    Service findServiceByIdService(Long idService);
 }

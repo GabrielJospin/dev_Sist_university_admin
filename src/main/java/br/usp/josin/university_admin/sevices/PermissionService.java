@@ -28,16 +28,16 @@ public class PermissionService {
     @Autowired
     private RelPersonProfileRepository relPersonProfileRepository;
 
-    public boolean hasPermission(Long idPerson, Character type, String entity){
+    public Service hasPermission(Long idPerson, Character type, String entity){
         if(type != 'C' && type != 'R' && type != 'U' && type != 'D')
-            return false;
+            return null;
         if(entity.length() != 3)
-            return false;
+            return null;
         String filter = type + "_" + entity;
         List<Service> services = permissionRepository.findServiceByIdPersonAndFilter(idPerson, filter);
         if(services.isEmpty())
-            return false;
-        return true;
+            return null;
+        return services.get(0);
     }
 
     public RelPersonProfile addPersonProfile(Long personId, Long profileId, Date initDate, Date endDate ){

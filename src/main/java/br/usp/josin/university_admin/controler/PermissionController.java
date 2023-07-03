@@ -1,6 +1,8 @@
 package br.usp.josin.university_admin.controler;
 
+import br.usp.josin.university_admin.entities.inter.Service;
 import br.usp.josin.university_admin.entities.intra.RelPersonProfile;
+import br.usp.josin.university_admin.sevices.HistoricalServices;
 import br.usp.josin.university_admin.sevices.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,18 +18,27 @@ public class PermissionController {
     @Autowired
     PermissionService permissionService;
 
+    @Autowired
+    HistoricalServices historicalServices;
+
     @PostMapping
     public RelPersonProfile addPermission(@RequestHeader Map<String, Object> headerData, @RequestBody Map<String, Object> bodyData){
-        System.out.println(bodyData);
-        System.out.println(headerData);
+
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
+        Service service = permissionService.hasPermission(personId, 'C', "RPP");
+        if ( service == null){
+            return null;
+        }
+
         Long person = Long.valueOf( (String)bodyData.get("person"));
         Long profile = Long.valueOf( (String)bodyData.get("profile"));
         Date initDate = Timestamp.valueOf( (String)bodyData.get("initDate"));
         Date endDate = Timestamp.valueOf( (String)bodyData.get("endDate"));
-        if (!permissionService.hasPermission(personId, 'C', "RPP")){
-            return null;
-        }
-        return permissionService.addPersonProfile(person, profile, initDate, endDate);
+
+        RelPersonProfile out = permissionService.addPersonProfile(person, profile, initDate, endDate);
+
+        historicalServices.log(personId, service.getIdService());
+        return out;
     }
+
 }
