@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Map;
+import java.util.List;
 
 @RestController
 @RequestMapping("/permission")
@@ -39,6 +40,35 @@ public class PermissionController {
 
         historicalServices.log(personId, service.getIdService());
         return out;
+    }
+
+    @PutMapping
+    public RelPersonProfile putPermission(@RequestHeader Map<String, Object> headerData, @RequestBody RelPersonProfile relPersonProfile){
+        Long personId = Long.valueOf( (String) headerData.get("person_id"));
+        Service service = permissionService.hasPermission(personId, 'U', "RPP");
+        if ( service == null){
+            return null;
+        }
+
+        RelPersonProfile out = permissionService.updateProfile(relPersonProfile);
+
+        historicalServices.log(personId, service.getIdService());
+        return out;
+    }
+
+    @GetMapping()
+    public List<RelPersonProfile> getPermissions(@RequestHeader Map<String, Object> headerData){
+        Long personId = Long.valueOf( (String) headerData.get("person_id"));
+        Service service = permissionService.hasPermission(personId, 'R', "RPP");
+        if ( service == null){
+            return null;
+        }
+
+        List<RelPersonProfile> out = permissionService.getAllPermissions();
+
+        historicalServices.log(personId, service.getIdService());
+        return out;
+
     }
 
 }

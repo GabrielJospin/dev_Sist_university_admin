@@ -49,5 +49,11 @@ public class PermissionService {
     }
 
 
+    public RelPersonProfile updateProfile(RelPersonProfile relPersonProfile) {
+        return relPersonProfileRepository.save(relPersonProfile);
+    }
 
+    public List<RelPersonProfile> getAllPermissions() {
+        return relPersonProfileRepository.findAll();
+    }
 }
