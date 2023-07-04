@@ -1,8 +1,8 @@
 package br.usp.josin.university_admin.controler;
 
 import br.usp.josin.university_admin.entities.inter.Person;
+import br.usp.josin.university_admin.entities.inter.Researcher;
 import br.usp.josin.university_admin.entities.inter.Service;
-import br.usp.josin.university_admin.entities.inter.Student;
 import br.usp.josin.university_admin.entities.intra.SpecPerson;
 import br.usp.josin.university_admin.sevices.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,28 +12,28 @@ import java.util.Map;
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
-public class StudentController {
+@RequestMapping("/researchers")
+public class ResearcherController {
 
     @Autowired
     PermissionService permissionService;
 
     @Autowired
-    StudentService studentService;
-
-    @Autowired
-    HistoricalServices historicalServices;
-
-    @Autowired
     PersonService personService;
+
+    @Autowired
+    ResearcherService researcherService;
 
     @Autowired
     SpecializeService specializeService;
 
+    @Autowired
+    HistoricalServices historicalServices;
+
     @PostMapping
-    public Student createStudent(@RequestHeader Map<String, Object> headerData, @RequestBody Map<String, Object> bodyData){
+    public Researcher createResearcher(@RequestHeader Map<String, Object> headerData, @RequestBody Map<String, Object> bodyData){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
-        Service service = permissionService.hasPermission(personId, 'C', "STU");
+        Service service = permissionService.hasPermission(personId, 'C', "RES");
         if ( service == null){
             return null;
         }
@@ -41,16 +41,14 @@ public class StudentController {
         Long idPerson = Long.valueOf((String) bodyData.get("id_person"));
         Person person = personService.getPerson(idPerson);
 
-        String course = (String) bodyData.get("course");
-        double entryGrade = Double.parseDouble((String) bodyData.get("entry_grade"));
+        String specialization = (String) headerData.get("specialization");
+        Boolean isPostgraduateStudent = Boolean.getBoolean((String) bodyData.get("is_postgraduate_student"));
 
-
-        Student student = new Student(course, entryGrade);
-
-        Student out = studentService.createStudent(student);
+        Researcher researcher = new Researcher(specialization, isPostgraduateStudent);
+        Researcher out = researcherService.createResearchet(researcher);
 
         SpecPerson specPerson = specializeService.getSpecPersonByPerson(person);
-        specPerson.setStudent(out);
+        specPerson.setResearcher(out);
         specializeService.updateSpecPerson(specPerson);
 
         historicalServices.log(personId, service.getIdService());
@@ -58,28 +56,28 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<Student> getStudents(@RequestHeader Map<String, Object> headerData){
+    public List<Researcher> getResearchers(@RequestHeader Map<String, Object> headerData){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
-        Service service = permissionService.hasPermission(personId, 'U', "STU");
+        Service service = permissionService.hasPermission(personId, 'R', "RES");
         if ( service == null){
             return null;
         }
 
-        List<Student> out = studentService.getStudents();
+        List<Researcher> out = researcherService.getResearchers();
 
         historicalServices.log(personId, service.getIdService());
         return out;
     }
 
     @PutMapping
-    public Student updateStudent(@RequestHeader Map<String, Object> headerData, @RequestBody Student student){
+    public Researcher updateResearcher(@RequestHeader Map<String, Object> headerData, @RequestBody Researcher researcher){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
-        Service service = permissionService.hasPermission(personId, 'R', "STU");
+        Service service = permissionService.hasPermission(personId, 'U', "RES");
         if ( service == null){
             return null;
         }
 
-        Student out = studentService.updateStudent(student);
+        Researcher out = researcherService.updateResearcher(researcher);
 
         historicalServices.log(personId, service.getIdService());
         return out;

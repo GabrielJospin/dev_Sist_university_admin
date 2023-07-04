@@ -50,7 +50,7 @@ public class ProfessorController {
         Professor out = professorService.createProfessor(professor);
 
         SpecPerson specPerson = specializeService.getSpecPersonByPerson(person);
-        specPerson.setProfessor(professor);
+        specPerson.setProfessor(out);
         specializeService.updateSpecPerson(specPerson);
 
         historicalServices.log(personId, service.getIdService());
@@ -60,7 +60,7 @@ public class ProfessorController {
     @GetMapping
     public List<Professor> getProfessors(@RequestHeader Map<String, Object> headerData){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
-        Service service = permissionService.hasPermission(personId, 'U', "STU");
+        Service service = permissionService.hasPermission(personId, 'R', "PRO");
         if ( service == null){
             return null;
         }
@@ -74,7 +74,7 @@ public class ProfessorController {
     @PutMapping
     public Professor updateProfessor(@RequestHeader Map<String, Object> headerData, @RequestBody Professor professor){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
-        Service service = permissionService.hasPermission(personId, 'U', "STU");
+        Service service = permissionService.hasPermission(personId, 'U', "PRO");
         if ( service == null){
             return null;
         }
