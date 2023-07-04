@@ -28,6 +28,9 @@ public class AuthController {
         String login = userData.get("login");
         String pass = userData.get("pass");
         Login auth =  loginService.validateLogin(login, pass);
+
+        if(auth == null)
+            return null;
         return auth.getPerson();
     }
 
