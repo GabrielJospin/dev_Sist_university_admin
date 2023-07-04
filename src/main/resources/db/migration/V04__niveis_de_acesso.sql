@@ -72,6 +72,13 @@ INSERT INTO production.services(code_service, description, id_profile) VALUES ('
 INSERT INTO production.services(code_service, description, id_profile) VALUES ('VIS_R_CUR', 'Pesquisa de curso por Visitante', 1);
 INSERT INTO production.services(code_service, description, id_profile) VALUES ('SUP_U_CUR', 'Atualização de empregado por Superintender',5);
 
+--Offering
+INSERT INTO production.services(code_service, description, id_profile) VALUES ('SUP_C_OFF', 'criação de Oferecimento por Superintendente', 5);
+INSERT INTO production.services(code_service, description, id_profile) VALUES ('VIS_R_OFF', 'Pesquisa de Oferecimento por Visitante', 1);
+INSERT INTO production.services(code_service, description, id_profile) VALUES ('PRO_U_OFF', 'Atualização de empregado por Superintender',3);
+INSERT INTO production.services(code_service, description, id_profile) VALUES ('ADM_U_OFF', 'Atualização de empregado por Superintender',4);
+INSERT INTO production.services(code_service, description, id_profile) VALUES ('SUP_U_OFF', 'Atualização de empregado por Superintender',5);
+
 
 --Relation Person Profile
 INSERT INTO production.services(code_service, description, id_profile) VALUES ('SUP_C_RPP', 'criação de Relação Pessoa Perfil por Superintendente', 5);

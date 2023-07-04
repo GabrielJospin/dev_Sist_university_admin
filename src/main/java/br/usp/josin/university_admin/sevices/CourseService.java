@@ -20,4 +20,8 @@ public class CourseService {
     public List<Course> getCourses() {
         return courseRepository.findAll();
     }
+
+    public Course getCourse(Long idCourse) {
+        return courseRepository.getById(idCourse);
+    }
 }

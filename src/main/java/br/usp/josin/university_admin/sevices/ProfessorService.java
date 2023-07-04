@@ -25,4 +25,8 @@ public class ProfessorService {
     public Professor updateProfessor(Professor professor) {
         return professorRepository.save(professor);
     }
+
+    public Professor getProfessor(Long idProfessor) {
+        return professorRepository.getById(idProfessor);
+    }
 }

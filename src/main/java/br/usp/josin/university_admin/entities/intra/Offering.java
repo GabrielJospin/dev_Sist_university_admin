@@ -18,9 +18,9 @@ public class Offering {
     @Column(name = "id")
     private Long id;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_student", referencedColumnName = "id_student")
-    private List<Student> students;
+    private Student student;
 
     @ManyToOne
     @JoinColumn(name = "id_professor", referencedColumnName = "id_professor")
@@ -48,9 +48,9 @@ public class Offering {
     public Offering() {
     }
 
-    public Offering(Long id, List<Student> students, Professor professor, Course course, Date initDate, Date endDate, Double grade, String classroom, String institution) {
+    public Offering(Long id, Student student, Professor professor, Course course, Date initDate, Date endDate, Double grade, String classroom, String institution) {
         this.id = id;
-        this.students = students;
+        this.student = student;
         this.professor = professor;
         this.course = course;
         this.initDate = initDate;
@@ -60,8 +60,8 @@ public class Offering {
         this.institution = institution;
     }
 
-    public Offering(List<Student> students, Professor professor, Course course, Date initDate, Date endDate, Double grade, String classroom, String institution) {
-        this.students = students;
+    public Offering(Student student, Professor professor, Course course, Date initDate, Date endDate, Double grade, String classroom, String institution) {
+        this.student = student;
         this.professor = professor;
         this.course = course;
         this.initDate = initDate;
@@ -76,12 +76,12 @@ public class Offering {
         return id;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudents(List<Student> student) {
-        this.students = student;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public Professor getProfessor() {
@@ -146,7 +146,7 @@ public class Offering {
         if (!(o instanceof Offering)) return false;
         Offering offering = (Offering) o;
         return Objects.equals(id, offering.id) &&
-                Objects.equals(students, offering.students) &&
+                Objects.equals(student, offering.student) &&
                 Objects.equals(professor, offering.professor) &&
                 Objects.equals(course, offering.course) &&
                 Objects.equals(initDate, offering.initDate) &&
@@ -158,6 +158,6 @@ public class Offering {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, students, professor, course, initDate, endDate, grade, classroom, institution);
+        return Objects.hash(id, student, professor, course, initDate, endDate, grade, classroom, institution);
     }
 }
