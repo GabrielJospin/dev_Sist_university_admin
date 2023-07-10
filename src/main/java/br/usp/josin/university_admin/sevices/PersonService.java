@@ -15,6 +15,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class PersonService {
@@ -46,5 +47,9 @@ public class PersonService {
         }
         relPersonProfileRepository.save(relPersonProfile);
         return out;
+    }
+
+    public List<Person> getCourses() {
+        return personRepository.findAll();
     }
 }
