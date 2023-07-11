@@ -13,7 +13,7 @@ public class Course {
     @Column(name = "id_course")
     private Long idCourse;
 
-    @Column(name = "cod_course")
+    @Column(name = "code_course")
     private String codCourse;
 
     @Column(name = "name")

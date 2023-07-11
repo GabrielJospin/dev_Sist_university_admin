@@ -25,4 +25,7 @@ public class WebController {
 
     @GetMapping("/project")
     public String project(){return "project";}
+
+    @GetMapping("/courses")
+    public String courses(){return "courses";}
 }
