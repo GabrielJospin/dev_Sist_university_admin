@@ -48,6 +48,8 @@ public class ResearcherController {
         Researcher out = researcherService.createResearchet(researcher);
 
         SpecPerson specPerson = specializeService.getSpecPersonByPerson(person);
+        if(specPerson == null)
+            specPerson = new SpecPerson();
         specPerson.setResearcher(out);
         specializeService.updateSpecPerson(specPerson);
 

@@ -48,6 +48,8 @@ public class EmployersController {
         Employer out = employerService.createEmployer(employer);
 
         SpecPerson specPerson = specializeService.getSpecPersonByPerson(person);
+        if(specPerson == null)
+            specPerson = new SpecPerson();
         specPerson.setEmployer(out);
         specializeService.updateSpecPerson(specPerson);
 

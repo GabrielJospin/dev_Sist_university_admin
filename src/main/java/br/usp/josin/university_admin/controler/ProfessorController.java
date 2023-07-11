@@ -50,6 +50,8 @@ public class ProfessorController {
         Professor out = professorService.createProfessor(professor);
 
         SpecPerson specPerson = specializeService.getSpecPersonByPerson(person);
+        if(specPerson == null)
+            specPerson = new SpecPerson();
         specPerson.setProfessor(out);
         specializeService.updateSpecPerson(specPerson);
 
