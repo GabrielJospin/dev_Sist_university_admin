@@ -42,56 +42,30 @@
     </div>
 </nav>
 
-<p id="textHello"></p>
-<script>
-    var postHello = document.getElementById('textHello');
-    postHello.textContent = 'Olá '+ userName +',';
-</script>
+<h1>Projeto Conceitual: </h1>
+<img src="../static/images/BancoDevSist.svg" alt="projeto Conceitual">
 
-<p>
-    Bem-vindo ao University System, o Segundo melhor sistema administrativo universitário da América Latina, isso porque estou modesto!
-</p>
-
-<div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Pessoas</h5>
-                <p class="card-text">CRUD de Pessoas e expecializações</p>
-                <a href="#" class="btn btn-primary">Menu</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Curso</h5>
-                <p class="card-text">CRUD de Cursos</p>
-                <a href="#" class="btn btn-primary">Menu</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Oferecimento</h5>
-                <p class="card-text">CRUD do Oferecimento das disciplinas</p>
-                <a href="#" class="btn btn-primary">Menu</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Reports</h5>
-                <p class="card-text">Reports oficiais disponibilizados</p>
-                <a href="#" class="btn btn-primary">Menu</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script type="text/javascript" src="../static/navbar.js"></script>
+<hr>
+<h1>Projeto Físico: </h1>
+<h5><b>Pessoas</b>(<u>id_pessoa</u>, nusp, nome, cpf, instituição, data, aniversário)</h5>
+<h5><b>Logins</b>(<u>id_login</u>, login, senha, <i>id_pessoa</i>)</h5>
+<h5><b>Perfils</b>(<u>id_perfil</u>, codigo_perfil, nome, descrição)</h5>
+<h5><b>Serviços</b>(<u>id_serviço</u>, codigo_serviço, descrição)</h5>
+<h5><b>Funcionários</b>(<u>id_funcionário</u>, função, salario)</h5>
+<h5><b>Pesquisadores</b>(<u>id_pesquisador</u>, especialização, flag_posgraduação)</h5>
+<h5><b>Alunos</b>(<u>id_aluno</u>, curso, nota_de_entrada)</h5>
+<h5><b>Docentes</b>(<u>id_docente</u>, especialização, nível_de_formação, Alma_Matter)</h5>
+<h5><b>Disciplinas</b>(<u>id_discilina</u>, código, nome, descrição, ementa, instituição, data_criação)</h5>
+<h5><b>Rel_Perfil_Pessoa</b>(<u><i>id_pessoa</i></u>, <u><i>id_perfil</i></u>, <u>data_inicio</u>, <u>data_fim</u>)</h5>
+<h5><b>Histórico</b>(<u><i>id_pessoa</i></u>, <u><i>id_serviço</i></u>, <u>data_hora</u>)</h5>
+<h5><b>Especialização_Pessoa</b>(<u><i>id_pessoa</i></u>, <i>id_funcionário</i>, <i>id_pesquisador</i>, <i>id_aluno</i>, <i>id_docente</i>)</h5>
+<h5><b>Oferecimento</b>(<u><i>id_aluno</i></u>, <u><i>id_docente</i></u>, <u>data_inicio</u>, <u>data_fim</u>, nota)</h5>
+<br>
+<h4>Legenda:</h4>
+<h5>
+    <b>Tabela</b><br/>
+    <u>Chave Primária</u><br/>
+    <i>Chave Externa</i><br/>
+</h5>
 </body>
 </html>

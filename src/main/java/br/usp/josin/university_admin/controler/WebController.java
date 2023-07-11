@@ -22,4 +22,7 @@ public class WebController {
     public String persons(){
         return "persons";
     }
+
+    @GetMapping("/project")
+    public String project(){return "project";}
 }
