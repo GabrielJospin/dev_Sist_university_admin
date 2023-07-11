@@ -10,8 +10,19 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/project/">Projeto</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/persons/">Pessoas</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/persons/" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Pessoas
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/persons/">Pessoas</a></li>
+            <li><a class="dropdown-item" href="/students/">Estudantes</a></li>
+            <li><a class="dropdown-item" href="/professors/">Professores</a></li>
+            <li><a class="dropdown-item" href="/employers/">Funcionários</a></li>
+            <li><a class="dropdown-item" href="/researches/">Pesquisadores</a></li>
+            <li><a class="dropdown-item" href="#">Especialização</a></li>
+            <li><a class="dropdown-item" href="/perfis/">Perfis</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/courses/">Cursos</a>
@@ -20,10 +31,10 @@
           <a class="nav-link" href="/offerings/">Oferecimento</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Reports
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Serviços Disponíveis</a></li>
             <li><a class="dropdown-item" href="#">Serviços Utilizados</a></li>
             <li><a class="dropdown-item" href="#">Disiplinas mais Oferecidas</a></li>
@@ -42,4 +53,7 @@
     </div>
   </div>
 </nav>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>

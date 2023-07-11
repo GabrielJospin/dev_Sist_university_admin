@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.List;
 
 @RestController
-@RequestMapping("/professors")
+@RequestMapping("/professor")
 public class ProfessorController {
 
     @Autowired
@@ -57,7 +57,7 @@ public class ProfessorController {
         return out;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public List<Professor> getProfessors(@RequestHeader Map<String, Object> headerData){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
         Service service = permissionService.hasPermission(personId, 'R', "PRO");

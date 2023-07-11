@@ -56,7 +56,7 @@ public class PermissionController {
         return out;
     }
 
-    @GetMapping()
+    @GetMapping("/")
     public List<RelPersonProfile> getPermissions(@RequestHeader Map<String, Object> headerData){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
         Service service = permissionService.hasPermission(personId, 'R', "RPP");

@@ -31,4 +31,19 @@ public class WebController {
 
     @GetMapping("/offerings")
     public String offerings(){return "offerings";}
+
+    @GetMapping("/students")
+    public String students(){return "students";}
+
+    @GetMapping("/professors")
+    public String professors(){return "professors";}
+
+    @GetMapping("/employers")
+    public String employers(){return "employers";}
+
+    @GetMapping("/researches")
+    public String researches(){return "researches";}
+
+    @GetMapping("/perfis")
+    public String perfis(){return "perfis";}
 }
