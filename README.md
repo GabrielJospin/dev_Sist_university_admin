@@ -16,14 +16,14 @@
 ```
   ./gradlew bootRun
 ```
-And after that, open the [localhost in port 8080](localhost:8080/) 
+And after that, open the localhost in port 8080: [localhost:8080/](localhost:8080/) 
 
 Finally login with,
 
 Login: seldon@usp.br
 pass: FUNDATION
 
-All the informations you can found in [Project page](localhost:8080/project/)
+All the informations you can found in Project page: [localhost:8080/project/](localhost:8080/project/)
 
 ## Dependencies
 - Java 8
