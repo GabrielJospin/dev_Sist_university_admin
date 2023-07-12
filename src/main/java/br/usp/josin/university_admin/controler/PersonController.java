@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -49,13 +50,13 @@ public class PersonController {
 
     @PostMapping("/")
     public Person createPerson(@RequestBody Map<String, Object> userData){
+//        System.out.println(userData);
         String nusp = (String) userData.get("nusp");
         String name = (String) userData.get("name");
         String document = (String) userData.get("document");
         String institution = (String) userData.get("institution");
         String email = (String) userData.get("email");
-        Timestamp birth = Timestamp.valueOf((String) userData.get("birth"));
-
+        Timestamp birth = Timestamp.valueOf((String) userData.get("birth") + " 00:00:00");
         return personService.createPerson(nusp, name, document, institution, email, birth);
     }
 }

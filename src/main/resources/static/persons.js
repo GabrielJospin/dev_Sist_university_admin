@@ -3,6 +3,44 @@ if(userId === null){
     window.location.href = "index"
 }
 
+function enviarFormulario() {
+    // Obtenha os dados do formulário
+    var nusp = document.getElementById("nusp").value;
+    var nome = document.getElementById("nome").value;
+    var documento = document.getElementById("documento").value;
+    var institution = document.getElementById("institution").value;
+    var email = document.getElementById("email").value;
+    var birth = document.getElementById("birth").value;
+    let _data = {
+        "nusp": nusp,
+        "name": nome,
+        "document": documento,
+        "institution": institution,
+        "email": email,
+        "birth": birth
+    }
+
+    try {
+        const response = fetch("http://localhost:8080/person/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "person_id": userId
+            },
+            body: JSON.stringify(_data)
+        });
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ', response.status);
+        }
+
+    }catch (error){
+        console.error('Erro ao obter resposta da requisição ',error)
+    }
+
+    // Feche o modal
+    $('#myModal').modal('hide');
+}
+
 async function obterRespostasDaRequisicao() {
     try {
         const response = await fetch("http://localhost:8080/person/", {
