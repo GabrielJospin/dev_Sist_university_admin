@@ -17,19 +17,8 @@ public class OfferingService {
     @Autowired
     OfferingRepository offeringRepository;
 
-    @Autowired
-    StudentService studentService;
 
-    @Autowired
-    ProfessorService professorService;
-
-    @Autowired
-    CourseService courseService;
-
-    public Offering createOffering(Long idStudent, Long idProfessor, Long idCourse, Date initDate, Date endDate, Double grade, String classroom, String institution) {
-        Student student = studentService.getStudent(idStudent);
-        Professor professor = professorService.getProfessor(idProfessor);
-        Course course = courseService.getCourse(idCourse);
+    public Offering createOffering(Student student, Professor professor, Course course, Date initDate, Date endDate, Double grade, String classroom, String institution) {
         Offering offering = new Offering(student, professor, course, initDate, endDate, grade, classroom, institution);
         return offeringRepository.save(offering);
     }

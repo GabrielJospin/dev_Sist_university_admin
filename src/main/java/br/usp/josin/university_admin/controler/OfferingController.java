@@ -1,10 +1,11 @@
 package br.usp.josin.university_admin.controler;
 
+import br.usp.josin.university_admin.entities.inter.Course;
+import br.usp.josin.university_admin.entities.inter.Professor;
 import br.usp.josin.university_admin.entities.inter.Service;
+import br.usp.josin.university_admin.entities.inter.Student;
 import br.usp.josin.university_admin.entities.intra.Offering;
-import br.usp.josin.university_admin.sevices.HistoricalServices;
-import br.usp.josin.university_admin.sevices.OfferingService;
-import br.usp.josin.university_admin.sevices.PermissionService;
+import br.usp.josin.university_admin.sevices.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,16 @@ public class OfferingController {
     @Autowired
     HistoricalServices historicalServices;
 
+
+    @Autowired
+    StudentService studentService;
+
+    @Autowired
+    ProfessorService professorService;
+
+    @Autowired
+    CourseService courseService;
+
     @PostMapping
     public Offering createOffering(@RequestHeader Map<String, Object> headerData, @RequestBody Map<String, Object> bodyData){
         Long personId = Long.valueOf( (String) headerData.get("person_id"));
@@ -37,13 +48,17 @@ public class OfferingController {
         Long idStudent = Long.valueOf((String) bodyData.get("idStudent"));
         Long idProfessor = Long.valueOf((String) bodyData.get("idProfessor"));
         Long idCourse = Long.valueOf((String) bodyData.get("idCourse"));
-        Date initDate = Timestamp.valueOf((String) bodyData.get("initDate"));
-        Date endDate = Timestamp.valueOf((String) bodyData.get("endDate"));
+        Date initDate = Timestamp.valueOf((String) bodyData.get("initDate") + " 00:00:00");
+        Date endDate = Timestamp.valueOf((String) bodyData.get("endDate")+ " 00:00:00");
         Double grade = Double.valueOf((String) bodyData.get("grade"));
         String classroom = (String) bodyData.get("classroom");
         String institution = (String) bodyData.get("institution");
 
-        Offering out = offeringService.createOffering(idStudent, idProfessor, idCourse, initDate, endDate, grade, classroom, institution);
+        Student student = studentService.getStudent(idStudent);
+        Professor professor = professorService.getProfessor(idProfessor);
+        Course course = courseService.getCourse(idCourse);
+
+        Offering out = offeringService.createOffering(student, professor, course, initDate, endDate, grade, classroom, institution);
 
         historicalServices.log(personId, service.getIdService());
         return out;

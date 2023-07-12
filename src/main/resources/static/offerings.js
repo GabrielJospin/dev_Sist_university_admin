@@ -3,6 +3,48 @@ if(userId === null){
     window.location.href = "index"
 }
 
+function enviarFormulario() {
+    // Obtenha os dados do formulário
+    var idCourse = document.getElementById("idCourse").value;
+    var idStudent = document.getElementById("idStudent").value;
+    var idProfessor = document.getElementById("idProfessor").value;
+    var initDate = document.getElementById("initDate").value;
+    var endDate = document.getElementById("endDate").value;
+    var grade = document.getElementById("grade").value;
+    var classroom = document.getElementById("classroom").value;
+    var institution = document.getElementById("institution").value;
+    let _data = {
+        "idCourse": idCourse,
+        "idStudent": idStudent,
+        "idProfessor": idProfessor,
+        "initDate": initDate,
+        "endDate": endDate,
+        "grade": grade,
+        "classroom":classroom,
+        "institution":institution
+    }
+
+    try {
+        const response = fetch("http://localhost:8080/Offering/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "person_id": userId
+            },
+            body: JSON.stringify(_data)
+        });
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ', response.status);
+        }
+
+    }catch (error){
+        console.error('Erro ao obter resposta da requisição ',error)
+    }
+
+    // Feche o modal
+    $('#myModal').modal('hide');
+}
+
 async function obterRespostasDaRequisicao() {
     try {
         const response = await fetch("http://localhost:8080/Offering/", {
