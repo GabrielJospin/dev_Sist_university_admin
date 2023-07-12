@@ -3,6 +3,41 @@ if(userId === null){
     window.location.href = "index"
 }
 
+function enviarFormulario() {
+    // Obtenha os dados do formulário
+    var person = document.getElementById("person").value;
+    var perfil = document.getElementById("perfil").value;
+    var initDate = document.getElementById("initDate").value;
+    var endDate = document.getElementById("endDate").value;
+    let _data = {
+        "person": person,
+        "profile": perfil,
+        "initDate": initDate,
+        "endDate": endDate
+    }
+
+    try {
+        const response = fetch("http://localhost:8080/permission/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "person_id": userId
+            },
+            body: JSON.stringify(_data)
+        });
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ', response.status);
+        }
+
+    }catch (error){
+        console.error('Erro ao obter resposta da requisição ',error)
+    }
+
+    // Feche o modal
+    $('#myModal').modal('hide');
+}
+
+
 async function obterRespostasDaRequisicao() {
     try {
         const response = await fetch("http://localhost:8080/permission/", {

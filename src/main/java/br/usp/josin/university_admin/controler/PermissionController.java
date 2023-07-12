@@ -33,8 +33,8 @@ public class PermissionController {
 
         Long person = Long.valueOf( (String)bodyData.get("person"));
         Long profile = Long.valueOf( (String)bodyData.get("profile"));
-        Date initDate = Timestamp.valueOf( (String)bodyData.get("initDate"));
-        Date endDate = Timestamp.valueOf( (String)bodyData.get("endDate"));
+        Date initDate = Timestamp.valueOf( (String)bodyData.get("initDate") + " 00:00:00");
+        Date endDate = Timestamp.valueOf( (String)bodyData.get("endDate") + " 00:00:00");
 
         RelPersonProfile out = permissionService.addPersonProfile(person, profile, initDate, endDate);
 
