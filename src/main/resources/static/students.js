@@ -3,6 +3,39 @@ if(userId === null){
     window.location.href = "index"
 }
 
+function enviarFormulario() {
+    // Obtenha os dados do formulário
+    var idPerson = document.getElementById("idPerson").value;
+    var course = document.getElementById("course").value;
+    var grade = document.getElementById("grade").value;
+    let _data = {
+        "id_person": idPerson,
+        "course": course,
+        "entry_grade": grade
+    }
+
+    try {
+        const response = fetch("http://localhost:8080/student/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "person_id": userId
+            },
+            body: JSON.stringify(_data)
+        });
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ', response.status);
+        }
+
+    }catch (error){
+        console.error('Erro ao obter resposta da requisição ',error)
+    }
+
+    // Feche o modal
+    $('#myModal').modal('hide');
+}
+
+
 async function obterRespostasDaRequisicao() {
     try {
         const response = await fetch("http://localhost:8080/student/", {

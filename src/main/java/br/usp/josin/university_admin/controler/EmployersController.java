@@ -41,15 +41,17 @@ public class EmployersController {
         Long idPerson = Long.valueOf((String) bodyData.get("id_person"));
         Person person = personService.getPerson(idPerson);
 
-        String function = (String) headerData.get("function");
-        int salary = Integer.parseInt((String) headerData.get("salary"));
+        String function = (String) bodyData.get("function");
+        int salary = (Integer) bodyData.get("salary");
         Employer employer = new Employer(function, salary);
 
         Employer out = employerService.createEmployer(employer);
 
         SpecPerson specPerson = specializeService.getSpecPersonByPerson(person);
-        if(specPerson == null)
+        if(specPerson == null) {
             specPerson = new SpecPerson();
+            specPerson.setPerson(person);
+        }
         specPerson.setEmployer(out);
         specializeService.updateSpecPerson(specPerson);
 

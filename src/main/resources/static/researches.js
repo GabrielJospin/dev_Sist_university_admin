@@ -3,6 +3,39 @@ if(userId === null){
     window.location.href = "index"
 }
 
+function enviarFormulario() {
+    // Obtenha os dados do formulário
+    var personId = document.getElementById("personId").value;
+    var specialization = document.getElementById("specialization").value;
+    var posgraduate = document.getElementById("posgraduate").checked;
+    let _data = {
+        "id_person": personId,
+        "specialization": specialization,
+        "is_postgraduate_student": posgraduate
+    }
+    console.log(_data)
+
+    try {
+        const response = fetch("http://localhost:8080/researchers/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "person_id": userId
+            },
+            body: JSON.stringify(_data)
+        });
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ', response.status);
+        }
+
+    }catch (error){
+        console.error('Erro ao obter resposta da requisição ',error)
+    }
+
+    // Feche o modal
+    $('#myModal').modal('hide');
+}
+
 async function obterRespostasDaRequisicao() {
     try {
         const response = await fetch("http://localhost:8080/researchers/", {
@@ -44,7 +77,10 @@ obterRespostasDaRequisicao().then(data =>{
             specializationCell.textContent = line.specialization;
 
             var posgraduateCell = row.insertCell();
-            posgraduateCell.textContent = line.isPostgraduateStudent ? "Sim" : "Não";
+            posgraduateCell.textContent = "Não"
+            if(line.postgraduateStudent === true){
+                posgraduateCell.textContent = "Sim"
+            }
 
 
         });

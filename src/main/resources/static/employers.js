@@ -4,13 +4,46 @@ if(userId === null){
 }
 
 function formatarMoeda(valor) {
-    const valorEmReais = (valor).toLocaleString('pt-BR', {
+    const valorEmReais = (valor/100).toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     });
 
     return valorEmReais;
 }
+
+function enviarFormulario() {
+    // Obtenha os dados do formulário
+    var idPerson = document.getElementById("idPerson").value;
+    var funct = document.getElementById("funct").value;
+    var salary = document.getElementById("salary").value*100;
+    let _data = {
+        "id_person": idPerson,
+        "function": funct,
+        "salary": salary
+    }
+
+    try {
+        const response = fetch("http://localhost:8080/employer/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "person_id": userId
+            },
+            body: JSON.stringify(_data)
+        });
+        if (!response.ok) {
+            throw new Error('Erro na requisição: ', response.status);
+        }
+
+    }catch (error){
+        console.error('Erro ao obter resposta da requisição ',error)
+    }
+
+    // Feche o modal
+    $('#myModal').modal('hide');
+}
+
 
 async function obterRespostasDaRequisicao() {
     try {

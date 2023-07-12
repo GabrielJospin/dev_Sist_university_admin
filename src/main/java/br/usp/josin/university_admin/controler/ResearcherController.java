@@ -41,15 +41,18 @@ public class ResearcherController {
         Long idPerson = Long.valueOf((String) bodyData.get("id_person"));
         Person person = personService.getPerson(idPerson);
 
-        String specialization = (String) headerData.get("specialization");
-        Boolean isPostgraduateStudent = Boolean.getBoolean((String) bodyData.get("is_postgraduate_student"));
+        String specialization = (String) bodyData.get("specialization");
+        System.out.println(bodyData.get("is_postgraduate_student"));
+        Boolean isPostgraduateStudent = (Boolean) bodyData.get("is_postgraduate_student");
 
         Researcher researcher = new Researcher(specialization, isPostgraduateStudent);
         Researcher out = researcherService.createResearchet(researcher);
 
         SpecPerson specPerson = specializeService.getSpecPersonByPerson(person);
-        if(specPerson == null)
+        if(specPerson == null) {
             specPerson = new SpecPerson();
+            specPerson.setPerson(person);
+        }
         specPerson.setResearcher(out);
         specializeService.updateSpecPerson(specPerson);
 

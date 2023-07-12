@@ -20,9 +20,9 @@ INSERT INTO production.researchers(specialization, is_postgraduate_student) VALU
 INSERT INTO production.researchers(specialization, is_postgraduate_student) VALUES ('Cinema Blockbuster', false);
 
 -- Employer
-INSERT INTO production.employers(function, salary) VALUES ('University Manager', 100000);
-INSERT INTO production.employers(function, salary) VALUES ('God Father', 17000000);
-INSERT INTO production.employers(function, salary) VALUES ('The Haven', 600);
+INSERT INTO production.employers(function, salary) VALUES ('University Manager', 10000000);
+INSERT INTO production.employers(function, salary) VALUES ('God Father', 1700000000);
+INSERT INTO production.employers(function, salary) VALUES ('The Haven', 60000);
 
 --Courses
 INSERT INTO production.courses(code_course, name, description, menu, institution, creation) VALUES ('MAC0350', 'Desenvolvimento de Sistemas', 'Princípios e técnicas de desenvolvimento de sistemas de software. Testes de software. Persistência de dados. Modelo entidade relacionamento e modelo relacional.','Técnicas para coleta de requisitos, modelagem, projeto e implementação de sistemas de software. Conceitos de projetos de sistemas avançados. Qualidade de software. Gerência e manutenção de software. Persistência de dados: projeto conceitual.', 'Instituto de Matemática e Estatistica', '2021-01-01');
