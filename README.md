@@ -23,7 +23,7 @@ Finally login with,
 Login: seldon@usp.br
 pass: FUNDATION
 
-##Dependencies
+## Dependencies
 - Java 8
 - org.springframework.boot version '2.5.4'
 - io.spring.dependency-management version '1.1.0'
