@@ -25,6 +25,8 @@ pass: FUNDATION
 
 All the informations you can found in Project page: [localhost:8080/project/](localhost:8080/project/)
 
+[The queries to build the database](https://github.com/GabrielJospin/dev_Sist_university_admin/blob/528f9777a0da86c4adc11ab9d96823b0e66a5827/src/main/resources/db/migration)
+
 ## Dependencies
 - Java 8
 - org.springframework.boot version '2.5.4'
