@@ -1,4 +1,4 @@
-package br.usp.josin.university_admin;
+package br.usp.jospin.university_admin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -23,7 +23,7 @@ CREATE TABLE production.historical_usage(
 
 CREATE TABLE production.spec_person(
     id serial,
-    id_person integer,
+    id_person integer not null,
     id_student integer,
     id_professor integer,
     id_researcher integer,
@@ -47,8 +47,8 @@ CREATE TABLE production.offering(
     id_student integer not null,
     id_professor integer not null,
     id_course integer not null,
-    init_date timestamp with time zone not null,
-    end_date timestamp with time zone not null,
+    init_date Date not null,
+    end_date Date not null,
     grade int,
     classroom VARCHAR(30),
     institution CHARACTER varying(255) NOT NULL,

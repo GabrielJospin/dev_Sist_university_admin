@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+<body>
+<div th:include="fragments/navbar.html"></div>
+
+<h1>Projeto Conceitual: </h1>
+<img src="../static/images/BancoDevSist.svg" alt="projeto Conceitual">
+
+<hr>
+<h1>Projeto Físico: </h1>
+<h5><b>Pessoas</b>(<u>id_pessoa</u>, nusp, nome, cpf, instituição, data, aniversário)</h5>
+<h5><b>Logins</b>(<u>id_login</u>, login, senha, <i>id_pessoa</i>)</h5>
+<h5><b>Perfils</b>(<u>id_perfil</u>, codigo_perfil, nome, descrição)</h5>
+<h5><b>Serviços</b>(<u>id_serviço</u>, codigo_serviço, descrição)</h5>
+<h5><b>Funcionários</b>(<u>id_funcionário</u>, função, salario)</h5>
+<h5><b>Pesquisadores</b>(<u>id_pesquisador</u>, especialização, flag_posgraduação)</h5>
+<h5><b>Alunos</b>(<u>id_aluno</u>, curso, nota_de_entrada)</h5>
+<h5><b>Docentes</b>(<u>id_docente</u>, especialização, nível_de_formação, Alma_Matter)</h5>
+<h5><b>Disciplinas</b>(<u>id_discilina</u>, código, nome, descrição, ementa, instituição, data_criação)</h5>
+<h5><b>Rel_Perfil_Pessoa</b>(<u><i>id_pessoa</i></u>, <u><i>id_perfil</i></u>, <u>data_inicio</u>, <u>data_fim</u>)</h5>
+<h5><b>Histórico</b>(<u><i>id_pessoa</i></u>, <u><i>id_serviço</i></u>, <u>data_hora</u>)</h5>
+<h5><b>Especialização_Pessoa</b>(<u><i>id_pessoa</i></u>, <i>id_funcionário</i>, <i>id_pesquisador</i>, <i>id_aluno</i>, <i>id_docente</i>)</h5>
+<h5><b>Oferecimento</b>(<u><i>id_aluno</i></u>, <u><i>id_docente</i></u>, <u>data_inicio</u>, <u>data_fim</u>, nota)</h5>
+<br>
+<h4>Legenda:</h4>
+<h5>
+    <b>Tabela</b><br/>
+    <u>Chave Primária</u><br/>
+    <i>Chave Externa</i><br/>
+</h5>
+</body>
+</html>

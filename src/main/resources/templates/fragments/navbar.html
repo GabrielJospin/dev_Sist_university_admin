@@ -1,0 +1,58 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home/">University System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/project/">Projeto</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/persons/" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Pessoas
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/persons/">Pessoas</a></li>
+            <li><a class="dropdown-item" href="/students/">Estudantes</a></li>
+            <li><a class="dropdown-item" href="/professors/">Professores</a></li>
+            <li><a class="dropdown-item" href="/employers/">Funcionários</a></li>
+            <li><a class="dropdown-item" href="/researches/">Pesquisadores</a></li>
+            <li><a class="dropdown-item" href="/perfis/">Perfis</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/courses/">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/offerings/">Oferecimento</a>
+        </li>
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link dropdown-toggle" href="#" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--            Reports-->
+<!--          </a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--            <li><a class="dropdown-item" href="#">Serviços Disponíveis</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Serviços Utilizados</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Disiplinas mais Oferecidas</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Professores com mais Aulas</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+        <li class="nav-item">
+          <a class="nav-link disabled" id="userName"></a>
+          <script type="text/javascript">
+            var userName = localStorage.getItem('user_name');
+            var postName = document.getElementById('userName');
+            postName.textContent = userName;
+          </script>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>
