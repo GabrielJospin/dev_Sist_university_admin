@@ -39,7 +39,7 @@ public class CourseController {
         String description = (String) bodyData.get("description");
         String menu = (String) bodyData.get("menu");
         String institution = (String) bodyData.get("institution");
-        Date creation = Timestamp.valueOf((String) bodyData.get("c"));
+        Date creation = Timestamp.valueOf( bodyData.get("creation") + " 00:00:00");
 
         Course course = new Course(codeCourse, name, description, menu, institution, creation);
 
