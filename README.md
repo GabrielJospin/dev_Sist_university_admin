@@ -23,6 +23,8 @@ Finally login with,
 Login: seldon@usp.br
 pass: FUNDATION
 
+All the informations you can found in [Project page](localhost:8080/project/)
+
 ## Dependencies
 - Java 8
 - org.springframework.boot version '2.5.4'
